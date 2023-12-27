@@ -1,0 +1,19 @@
+/**
+ * Get main button title
+ * @param {number} timer - remaining time, either running or stopped
+ * @param {boolean} timerIsRunning - a boolean indicating if the timer is running
+ * @returns {string} The title of the button
+ */
+function getButtonTitle(timer: number, timerIsRunning: boolean): string | never {
+    let buttonTitle: string = '';
+    if (timer === TIMER_DEFAULT_TIME && timerIsRunning === false)
+        buttonTitle = 'INICIAR';
+    else if (timer <= TIMER_DEFAULT_TIME && timer >= 0 && timerIsRunning === true)
+        buttonTitle = 'PAUSAR';
+    else if (timer === 0 && timerIsRunning === false)
+        buttonTitle = 'REINICIAR';
+    else
+        throw new Error('Invalid state transition or event');
+
+    return buttonTitle;
+}
