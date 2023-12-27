@@ -1,8 +1,11 @@
 import React from 'react';
-import { Button, ButtonProps } from 'react-native';
+// import { Button, ButtonProps } from 'react-native';
+
 import { TIMER_DEFAULT_TIME } from '../../utils/constants';
 import { MakeOptional } from '../../utils/utilityTypes';
 import { TIMER_STATE } from '../../utils/types';
+import { ButtonProps } from 'react-native';
+import Button from '../Button/Button';
 
 interface IActionButton {
     timerState: TIMER_STATE

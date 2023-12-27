@@ -35,14 +35,18 @@ const Timer = () => {
     }
 
     return (
-        <View>
-            <ActionButton
-                onPress={toggleTimer}
-                timerState={TIMER_STATE}
-            />
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ fontSize: 30 }}>{timer}</Text>
+        <View style={{ flex: 1 }}>
+            <View style={{ flex: 2 }} />
+            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontSize: 100 }}>{timer}</Text>
             </View>
+            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                <ActionButton
+                    onPress={toggleTimer}
+                    timerState={TIMER_STATE}
+                />
+            </View>
+            <View style={{ flex: 4 }} />
         </View>
     )
 }
