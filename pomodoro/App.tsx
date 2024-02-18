@@ -1,32 +1,14 @@
 import React from 'react';
-import {
-	SafeAreaView,
-	ScrollView,
-	StatusBar,
-	StyleSheet,
-	View,
-	useColorScheme
-} from 'react-native';
-import {
-	Colors
-} from 'react-native/Libraries/NewAppScreen';
-import Timer from './src/components/timer/Timer';
+import * as eva from '@eva-design/eva';
+import HomeScreen from './src/components/homeScreen/HomeScreen';
+import { ApplicationProvider } from '@ui-kitten/components';
+import { default as theme } from './theme.json';
 
 function App(): React.JSX.Element {
-	const isDarkMode = useColorScheme() === 'dark';
-
-	const backgroundColor = isDarkMode ? Colors.darker : Colors.lighter;
-
 	return (
-		<SafeAreaView style={{ flex: 1 }}>
-			<StatusBar
-				barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-				backgroundColor={backgroundColor}
-			/>
-			<View style={{ flex: 1 }}>
-				<Timer />
-			</View>
-		</SafeAreaView>
+		<ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
+			<HomeScreen />
+		</ApplicationProvider>
 	);
 }
 

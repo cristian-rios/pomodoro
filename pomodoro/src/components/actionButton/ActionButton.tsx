@@ -5,7 +5,8 @@ import { TIMER_DEFAULT_TIME } from '../../utils/constants';
 import { MakeOptional } from '../../utils/utilityTypes';
 import { TIMER_STATE } from '../../utils/types';
 import { ButtonProps } from 'react-native';
-import Button from '../Button/Button';
+// import Button from '../Button/Button';
+import { Button } from '@ui-kitten/components';
 
 interface IActionButton {
     timerState: TIMER_STATE
@@ -14,18 +15,19 @@ interface IActionButton {
 type ActionButtonProps = MakeOptional<ButtonProps, 'title'> & IActionButton;
 
 const buttonDescription: Record<TIMER_STATE, string> = {
-    START: 'INICIAR',
-    PAUSED: 'CONTINUAR',
-    RUNNING: 'PAUSAR',
-    STOPPED: 'FINALIZADO',
+    START: 'Start',
+    PAUSED: 'Paused',
+    RUNNING: 'Running',
+    STOPPED: 'Stopped',
 }
 
 const ActionButton = (props: ActionButtonProps) => (
-    <Button
-        onPress={props.onPress}
-        title={buttonDescription[props.timerState]}
-        {...props}
-    />
+    // <Button
+    //     onPress={props.onPress}
+    //     title={buttonDescription[props.timerState]}
+    //     {...props}
+    // />
+    <Button>{buttonDescription[props.timerState]}</Button>
 );
 
 export default ActionButton;
