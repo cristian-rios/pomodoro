@@ -1,13 +1,13 @@
-import { TIMER_DEFAULT_TIME } from "./constants";
+import { POMODORO_MODE, TIMER_DEFAULT_TIME } from "./constants";
 import { TIMER_STATE } from "./types";
 
-export function getTimerState(timer: number, timerIsRunning: boolean): TIMER_STATE | never {
+export function getTimerState(timer: number, timerIsRunning: boolean, pomo_mode: POMODORO_MODE): TIMER_STATE | never {
     let timerState: TIMER_STATE;
-    if (timer === TIMER_DEFAULT_TIME && timerIsRunning === false)
+    if (timer === TIMER_DEFAULT_TIME[pomo_mode] && timerIsRunning === false)
         timerState = 'START';
-    else if (timer <= TIMER_DEFAULT_TIME && timer > 0 && timerIsRunning === true)
+    else if (timer <= TIMER_DEFAULT_TIME[pomo_mode] && timer > 0 && timerIsRunning === true)
         timerState = 'RUNNING';
-    else if (timer <= TIMER_DEFAULT_TIME && timer > 0 && timerIsRunning === false)
+    else if (timer <= TIMER_DEFAULT_TIME[pomo_mode] && timer > 0 && timerIsRunning === false)
         timerState = 'PAUSED';
     else if (timer === 0 && timerIsRunning === true)
         timerState = 'STOPPED';

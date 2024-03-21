@@ -5,7 +5,13 @@ export const TIMER_DEFAULT_BREAK_TIME = 15;
 export const MAX_STUDYING_TIMES_BEFORE_SWITCHING = 2;
 
 export enum POMODORO_MODE {
-    Studying,
-    Pause,
-    Break,
+  Studying,
+  Pause,
+  Break,
 }
+
+export const TIMER_DEFAULT_TIME = {
+  [POMODORO_MODE.Studying]: TIMER_DEFAULT_STUDYING_TIME,
+  [POMODORO_MODE.Pause]: TIMER_DEFAULT_PAUSE_TIME,
+  [POMODORO_MODE.Break]: TIMER_DEFAULT_BREAK_TIME,
+};
