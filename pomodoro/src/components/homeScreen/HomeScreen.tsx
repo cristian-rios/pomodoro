@@ -1,24 +1,24 @@
-import React from 'react';
-import { SafeAreaView, StatusBar, View, useColorScheme } from 'react-native';
+/* eslint-disable prettier/prettier */
+import React, { useContext } from 'react';
+import { SafeAreaView, StatusBar, useColorScheme, View } from 'react-native';
 import Timer from '../timer/Timer';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import ThemeContext from '../../utils/themeContext';
 
 const HomeScreen = () => {
     const isDarkMode = useColorScheme() === 'dark';
 
-    const backgroundColor = isDarkMode ? Colors.darker : Colors.lighter;
-
+    const { theme } = useContext(ThemeContext);
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            {/* <StatusBar
+        <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
+            <StatusBar
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                backgroundColor={backgroundColor}
-            /> */}
+                backgroundColor={theme.background}
+            />
             <View style={{ flex: 1 }}>
                 <Timer />
             </View>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default HomeScreen;
